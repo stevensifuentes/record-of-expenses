@@ -1,12 +1,16 @@
 import { Helmet } from 'react-helmet'
+import ButtonLogout from './elements/ButtonLogout'
 import { Boton } from './elements/Boton'
 import { 
   Header,
   ContenedorHeader,
   ContenedorBotones,
   Titulo } from './elements/Header'
+import { useAuth } from './context/AuthContext'
 
 const App = () => {
+  const contexto = useAuth()
+  console.log(contexto)
   return (
     <>
       <Helmet>
@@ -19,7 +23,7 @@ const App = () => {
           <ContenedorBotones>
             <Boton to='/categories'>Categorias</Boton>
             <Boton to='/list'>Lista de gastos</Boton>
-            <Boton to='/'>X</Boton>
+            <ButtonLogout />
           </ContenedorBotones>
         </ContenedorHeader>
       </Header>
