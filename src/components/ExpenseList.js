@@ -11,7 +11,7 @@ const ExpenseList = () => {
       </Helmet>
 
       <Header>
-        <BtnRegresar ruta='list'/>
+        <BtnRegresar ruta='/'/>
         <Titulo>Lista de gastos</Titulo>
       </Header>
     </>

@@ -123,7 +123,7 @@ const Signup = () => {
       <Formulario onSubmit={handleSubmit}>
         <Svg />
         <Input
-          type='text' 
+          type='email' 
           name='email'
           autoComplete='off'
           value={email}
@@ -132,12 +132,14 @@ const Signup = () => {
         <Input
           type='password'
           name='password'
+          autoComplete='off'
           value={password}
           onChange={onChange}
           placeholder='Contraseña' />
         <Input
           type='password'
           name='passwordTwo'
+          autoComplete='off'
           value={passwordTwo}
           onChange={onChange}
           placeholder='Repetir la contraseña' />

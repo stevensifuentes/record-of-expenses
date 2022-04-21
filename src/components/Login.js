@@ -102,6 +102,7 @@ const Login = () => {
           name='password'
           value={ password }
           onChange={ handleChange }
+          autoComplete='off'
           placeholder='Contraseña' />
         <ContenedorBoton>
           <Boton as='button' primario>Iniciar Sesión</Boton>

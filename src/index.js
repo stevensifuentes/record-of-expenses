@@ -16,6 +16,7 @@ import { AuthProvider } from './context/AuthContext'
 import favicon from './img/logo.png'
 import Fondo from './elements/Fondo'
 import './index.css'
+import PrivateRoute from './components/PrivateRoute'
 
 WebFont.load({
   // Work+Sans:wght@400;500;700
@@ -36,12 +37,35 @@ const Index = () => {
           <Contenedor>
 
             <Routes>
-              <Route path='/' element={<App />} />
+              {/* Public routes */}
               <Route path='/login' element={<Login />} />
               <Route path='/signup' element={<Signup />} />
-              <Route path='/categories' element={<ExpensesCategory />} />
-              <Route path='/list' element={<ExpenseList />} />
-              <Route path='/edit/:id' element={<EditExpense />} />
+              
+              {/* Private routes */}
+              <Route path='/' element={
+                <PrivateRoute>
+                  <App />
+                </PrivateRoute>
+              } />
+
+              <Route path='/categories' element={
+                <PrivateRoute>
+                  <ExpensesCategory />
+                </PrivateRoute>
+              } />
+
+              <Route path='/list' element={
+                <PrivateRoute>
+                  <ExpenseList />
+                </PrivateRoute>
+              } />
+
+              <Route path='/edit/:id' element={
+                <PrivateRoute>
+                  <EditExpense />
+                </PrivateRoute>
+              } />
+              
             </Routes>
 
           </Contenedor>
