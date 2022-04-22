@@ -7,10 +7,12 @@ import {
   ContenedorBotones,
   Titulo } from './elements/Header'
 import { useAuth } from './context/AuthContext'
+import ExpenseForm from './components/ExpenseForm'
 
 const App = () => {
   const contexto = useAuth()
   console.log(contexto)
+  
   return (
     <>
       <Helmet>
@@ -27,6 +29,8 @@ const App = () => {
           </ContenedorBotones>
         </ContenedorHeader>
       </Header>
+
+      <ExpenseForm />
     </>
   )
 }

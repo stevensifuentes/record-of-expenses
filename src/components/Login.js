@@ -11,12 +11,6 @@ import { ContenedorHeader, Header, Titulo } from '../elements/Header'
 import { ContenedorBoton, Formulario, Input } from '../elements/ElementosFormulario'
 import { ReactComponent as SvgLogin } from '../img/login.svg'
 
-const Svg = styled(SvgLogin)`
-  width: 100%;
-  max-height: 12.5rem; /* 200px */
-  margin-bottom: 1.25rem; /* 20px */
-`
-
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('')
@@ -118,5 +112,11 @@ const Login = () => {
     </>
   )
 }
+
+const Svg = styled(SvgLogin)`
+  width: 100%;
+  max-height: 12.5rem; /* 200px */
+  margin-bottom: 1.25rem; /* 20px */
+`
 
 export default Login
