@@ -9,6 +9,7 @@ import Contenedor from './elements/Contenedor'
 import EditExpense from './components/EditExpense'
 import ExpensesCategory from './components/ExpensesCategory'
 import ExpenseList from './components/ExpenseList'
+import PrivateRoute from './components/PrivateRoute'
 import Login from './components/Login'
 import Signup from './components/Signup'
 
@@ -16,7 +17,6 @@ import { AuthProvider } from './context/AuthContext'
 import favicon from './img/logo.png'
 import Fondo from './elements/Fondo'
 import './index.css'
-import PrivateRoute from './components/PrivateRoute'
 
 WebFont.load({
   // Work+Sans:wght@400;500;700

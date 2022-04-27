@@ -15,21 +15,20 @@ const categorias = [
     { id: 'diversion', texto: 'Diversion' }
 ]
 
-const SelectCategories = () => {
+const SelectCategories = ({ category, setCategory }) => {
     const [show, setShow] = useState(false)
-    const [currentCategory, setCurrentCategory] = useState('Hogar')
-
+    
     return (
         <ContenedorSelect onClick={() => setShow(!show)}>
             <OpcionSeleccionada>
-                {currentCategory} <IconDown />
+                {category} <IconDown />
             </OpcionSeleccionada>
             {show &&
                 <Opciones>
                     {categorias.map(({id, texto}) => (
                         <Opcion 
                             key={id}
-                            onClick={() => setCurrentCategory(texto)} >
+                            onClick={() => setCategory(texto)} >
                             <IconCategory id={id} />
                             {texto}
                         </Opcion>
