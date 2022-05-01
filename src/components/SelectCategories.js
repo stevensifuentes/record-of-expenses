@@ -28,7 +28,7 @@ const SelectCategories = ({ category, setCategory }) => {
                     {categorias.map(({id, texto}) => (
                         <Opcion 
                             key={id}
-                            onClick={() => setCategory(texto)} >
+                            onClick={() => setCategory(id)} >
                             <IconCategory id={id} />
                             {texto}
                         </Opcion>

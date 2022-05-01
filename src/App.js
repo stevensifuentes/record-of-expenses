@@ -6,12 +6,13 @@ import {
   ContenedorHeader,
   ContenedorBotones,
   Titulo } from './elements/Header'
-import { useAuth } from './context/AuthContext'
 import ExpenseForm from './components/ExpenseForm'
+import TotalBar from './components/TotalBar'
+import { useAuth } from './hooks/useAuth'
 
 const App = () => {
   const contexto = useAuth()
-  console.log(contexto)
+  console.log('From App', contexto)
   
   return (
     <>
@@ -31,6 +32,8 @@ const App = () => {
       </Header>
 
       <ExpenseForm />
+
+      <TotalBar />
     </>
   )
 }
