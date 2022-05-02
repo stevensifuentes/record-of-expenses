@@ -18,7 +18,7 @@ const ButtonLogout = () => {
     }
 
     return (
-        <Boton iconoGrande as='button' onClick={logout}>
+        <Boton iconoGrande as='button' onClick={ logout }>
             <IconLogout />
         </Boton>
     )

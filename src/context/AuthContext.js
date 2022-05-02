@@ -14,17 +14,17 @@ export const AuthProvider = ({ children }) => {
     // Efecto para ejecutar la comprobación una sola vez.
     useEffect(() => {
         // Comprobamos si hay un usuario
-        const cancelarSuscripcion = onAuthStateChanged(auth, (userAuth) => {
+        const unsubscribe = onAuthStateChanged(auth, (userAuth) => {
             setUser(userAuth)
             setLoading(false)
         })
 
-        return cancelarSuscripcion
+        return unsubscribe
     }, [])
 
     return ( 
         <AuthContext.Provider value={{ user }}>
-            {!loading && children }
+            { !loading && children }
         </AuthContext.Provider> 
     )
 } 

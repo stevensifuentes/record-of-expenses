@@ -6,7 +6,6 @@ const PrivateRoute = ({ children }) => {
     const { user } = useAuth()
 
     return user ? children : <Navigate replace to='/login'/>
-
 }
 
 export default PrivateRoute

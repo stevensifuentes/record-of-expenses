@@ -8,12 +8,8 @@ import {
   Titulo } from './elements/Header'
 import ExpenseForm from './components/ExpenseForm'
 import TotalBar from './components/TotalBar'
-import { useAuth } from './hooks/useAuth'
 
 const App = () => {
-  const contexto = useAuth()
-  console.log('From App', contexto)
-  
   return (
     <>
       <Helmet>

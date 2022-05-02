@@ -4,8 +4,8 @@ import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../firebase/firebaseConfig'
 
 export const useGetExpenseById = (id) => {
-    const navigate = useNavigate()
     const [expense, setExpense] = useState()
+    const navigate = useNavigate()
 
     useEffect(() => {
         const getExpense = async () => {
@@ -21,6 +21,5 @@ export const useGetExpenseById = (id) => {
         return setExpense('')
     }, [id, navigate])
     
-
     return [expense]
 }

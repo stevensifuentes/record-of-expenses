@@ -18,12 +18,12 @@ const Svg = styled(SvgRegistro)`
 `
 
 const Signup = () => {
-  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [passwordTwo, setPasswordTwo] = useState('')
   const [alerta, setAlerta] = useState({})
   const [estadoAlerta, setEstadoAlerta] = useState(false)
+  const navigate = useNavigate()
 
   const onChange = ({ target: { name, value } }) => {
     switch (name) {

@@ -11,10 +11,10 @@ import { db } from '../firebase/firebaseConfig'
 import { useAuth } from './useAuth'
 
 export const useGetExpenses = () => {
-    const { user } = useAuth()
     const [expenses, setExpenses] = useState([])
     const [lastExpense, setLastExpense] = useState(null)
     const [moreToLoad, setMoreToLoad] = useState(false)
+    const { user } = useAuth()
 
     const getMoreSpending = () => {
         const customQuery = query(
@@ -56,7 +56,6 @@ export const useGetExpenses = () => {
             setExpenses(snapshot.docs.map((expense) => (
                 { ...expense.data(), id: expense.id }
             )))
-            // console.log(snapshot.docs[0].data())
         })
         return unsuscribe
     }, [user])

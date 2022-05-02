@@ -19,14 +19,14 @@ import { ReactComponent as IconPlus } from './../img/plus.svg'
 import { useAuth } from '../hooks/useAuth'
 
 const ExpenseForm = ({ expense }) => {
-    const { user } = useAuth()
-    const navigate = useNavigate()
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState('')
     const [date, setDate] = useState(new Date())
     const [category, setCategory] = useState('hogar')
     const [stateAlert, setStateAlert] = useState(false)
     const [alert, setAlert] = useState({})
+    const navigate = useNavigate()
+    const { user } = useAuth()
 
     useEffect(() => {
         if(expense){
@@ -106,7 +106,7 @@ const ExpenseForm = ({ expense }) => {
             <Input
                 type='text'
                 name='description'
-                placeholder='Description'
+                placeholder='Descripción'
                 autoComplete='off'
                 value={description}
                 onChange={handleChange}

@@ -19,9 +19,13 @@ export const Boton = styled(Link)`
     justify-content: space-between;
     align-items: center;
     outline: none;
- 
+    transition: all .2s ease-out;
     svg {
         height: ${(props) => props.iconoGrande ? '100%' : '0.75rem;'};  /* 12px */
         fill: white;
+    }
+
+    &:hover {
+        background: ${(props) => props.primario ? '#7480E7' : '#333333'};
     }
 `

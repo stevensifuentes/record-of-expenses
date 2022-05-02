@@ -13,15 +13,15 @@ const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', '
 const dias_semana_cortos = ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa']
 
 function parseDate(str, format) {
-    const parsed = dateFnsParse(str, format, new Date(), { locale: es });
+    const parsed = dateFnsParse(str, format, new Date(), { locale: es })
     if (DateUtils.isDate(parsed)) {
-        return parsed;
+        return parsed
     }
-    return undefined;
+    return undefined
 }
 
 function formatDate(date, format) {
-    return dateFnsFormat(date, format, { locale: es });
+    return dateFnsFormat(date, format, { locale: es })
 }
 
 const DatePicker = ({ date, setDate }) => {
@@ -59,8 +59,12 @@ const ContenedorInput = styled.div`
         align-items: center;
         outline: none;
         justify-content: center;
+        transition: .5s ease all;
+        &:hover {
+            background: ${theme.grisClaro2};
+        }
     }
- 
+    
     @media(max-width: 60rem){ /* 950px */
         & > * {
             width: 100%;

@@ -11,17 +11,15 @@ export const addExpense = async ({ description, category, price, date, uidUser }
             uidUser
         })
     } catch (error) {
-        console.log("Error adding document: ", error)
+        console.log('Error adding document: ', error)
     }
 }
 
 export const deleteExpense = async ( id ) => {
     try {
         await deleteDoc(doc(db, 'expenses', id))
-        console.log('Gasto borrado con éxito')
     } catch (error) {
-        console.log('Hubo un error al intentar eliminar el gasto')
-        console.log(error)
+        console.log('Hubo un error al intentar eliminar el gasto', error)
     }
 }
 
@@ -34,8 +32,7 @@ export const updateExpense = async ({ id, category, description, price, date }) 
             price: Number(price)
         })
     } catch (error) {
-        console.log('Hubo un error al intentar actualizar el gasto')
-        console.log(error)
+        console.log('Hubo un error al intentar actualizar el gasto', error)
     }
 }
 

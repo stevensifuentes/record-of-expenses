@@ -5,7 +5,6 @@ import { Helmet } from 'react-helmet'
 import WebFont from 'webfontloader'
 
 import App from './App'
-import Contenedor from './elements/Contenedor'
 import EditExpense from './components/EditExpense'
 import ExpensesCategory from './components/ExpensesCategory'
 import ExpenseList from './components/ExpenseList'
@@ -13,15 +12,17 @@ import PrivateRoute from './components/PrivateRoute'
 import Login from './components/Login'
 import Signup from './components/Signup'
 
-import { AuthProvider } from './context/AuthContext'
-import favicon from './img/logo.png'
+import Contenedor from './elements/Contenedor'
 import Fondo from './elements/Fondo'
+import favicon from './img/logo.png'
 import './index.css'
 
+import { AuthProvider } from './context/AuthContext'
+import { TotalSpentMonthProvider } from './context/TotalSpentMonthContext'
+
 WebFont.load({
-  // Work+Sans:wght@400;500;700
-  google: {
-    families: ['Work Sans:400,500,700', 'sans-serif']
+  google: { 
+    families: ['Work Sans:400,500,700', 'sans-serif'] // Work+Sans:wght@400;500;700
   }
 })
 
@@ -33,43 +34,44 @@ const Index = () => {
       </Helmet>
 
       <AuthProvider>
-        <BrowserRouter>
-          <Contenedor>
+        <TotalSpentMonthProvider>
+          <BrowserRouter>
+            <Contenedor>
 
-            <Routes>
-              {/* Public routes */}
-              <Route path='/login' element={<Login />} />
-              <Route path='/signup' element={<Signup />} />
-              
-              {/* Private routes */}
-              <Route path='/' element={
-                <PrivateRoute>
-                  <App />
-                </PrivateRoute>
-              } />
+              <Routes>
+                {/* Public routes */}
+                <Route path='/login' element={<Login />} />
+                <Route path='/signup' element={<Signup />} />
+                
+                {/* Private routes */}
+                <Route path='/' element={
+                  <PrivateRoute>
+                    <App />
+                  </PrivateRoute>
+                } />
 
-              <Route path='/categories' element={
-                <PrivateRoute>
-                  <ExpensesCategory />
-                </PrivateRoute>
-              } />
+                <Route path='/categories' element={
+                  <PrivateRoute>
+                    <ExpensesCategory />
+                  </PrivateRoute>
+                } />
 
-              <Route path='/list' element={
-                <PrivateRoute>
-                  <ExpenseList />
-                </PrivateRoute>
-              } />
+                <Route path='/list' element={
+                  <PrivateRoute>
+                    <ExpenseList />
+                  </PrivateRoute>
+                } />
 
-              <Route path='/edit/:id' element={
-                <PrivateRoute>
-                  <EditExpense />
-                </PrivateRoute>
-              } />
-              
-            </Routes>
+                <Route path='/edit/:id' element={
+                  <PrivateRoute>
+                    <EditExpense />
+                  </PrivateRoute>
+                } />
+              </Routes>
 
-          </Contenedor>
-        </BrowserRouter>
+            </Contenedor>
+          </BrowserRouter>
+        </TotalSpentMonthProvider>
       </AuthProvider>
 
       <Fondo />

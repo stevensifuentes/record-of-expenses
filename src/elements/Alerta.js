@@ -36,7 +36,6 @@ const ContenedorAlerta = styled.div`
     animation: ${slideDown} 4s ease forwards;
  
     p {
- 
         background: ${(props) => {
         if (props.tipo === 'error') {
             return theme.rojo;
@@ -61,7 +60,7 @@ export const Alerta = ({ mensaje, tipo, estadoAlerta, setEstadoAlerta }) => {
         if(estadoAlerta){
             tiempo = setTimeout(() => {
                 setEstadoAlerta(false)
-            }, 4000);
+            }, 4000)
         }
 
         // Pasamos una función de limpieza. Esta función se ejecuta si el componente se desmonta.

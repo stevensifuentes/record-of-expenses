@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Helmet from 'react-helmet'
 import { Link } from 'react-router-dom'
 
@@ -28,9 +28,12 @@ import { moneyConverter } from '../helpers/moneyConverter'
 import { ReactComponent as EditIcon } from './../img/editar.svg'
 import { ReactComponent as DeleteIcon } from './../img/borrar.svg'
 import TotalBar from './TotalBar'
+import { Alerta } from '../elements/Alerta'
 
 const ExpenseList = () => {
   const [expenses, moreToLoad, getMoreSpending] = useGetExpenses()
+  const [estadoAlerta, setEstadoAlerta] = useState(false)
+  const [alerta, setAlerta] = useState({})
 
   const dateIsEqual = (expenses, index, expense) => {
     // if(index!==0){
@@ -43,6 +46,15 @@ const ExpenseList = () => {
     //   }
     // }
     return index!==0 && formatDate(expense.date)===formatDate(expenses[index - 1].date)
+  }
+
+  const deleteExp = (id) => {
+    deleteExpense(id)
+    setEstadoAlerta(true)
+    setAlerta({
+      tipo: 'exito',
+      mensaje: 'Gasto removido de la lista'
+    })
   }
 
   return (
@@ -75,7 +87,7 @@ const ExpenseList = () => {
                 <BotonAccion as={Link} to={`/edit/${expense.id}`}>
                   <EditIcon />
                 </BotonAccion>
-                <BotonAccion onClick={() => deleteExpense(expense.id)}>
+                <BotonAccion onClick={() => deleteExp(expense.id)}>
                   <DeleteIcon />
                 </BotonAccion>
               </ContenedorBotones>
@@ -97,6 +109,13 @@ const ExpenseList = () => {
         }
       </Lista>
       <TotalBar />
+
+      <Alerta
+        tipo={alerta.tipo}
+        mensaje={alerta.mensaje}
+        estadoAlerta={estadoAlerta}
+        setEstadoAlerta={setEstadoAlerta}
+      />
     </>
   )
 }

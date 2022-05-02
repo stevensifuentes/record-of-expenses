@@ -17,7 +17,8 @@ const Btn = styled.button`
     justify-content: center;
     border-radius: 0.31rem; /* 5px */
     cursor: pointer;
- 
+    transition: all .2s ease-out;
+
     @media(max-width: 60rem){ /* 950px */
         width: 2.5rem; /* 40px */
         height: 2.5rem; /* 40px */
@@ -36,7 +37,7 @@ const BtnRegresar = ({ruta = '/'}) => {
 
 	return (
 		<Btn onClick={() => navigate(ruta)}><Icono /></Btn>
-	);
+	)
 }
  
-export default BtnRegresar;
+export default BtnRegresar

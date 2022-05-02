@@ -1,22 +1,23 @@
 import React, { useState } from 'react'
 import Helmet from 'react-helmet'
-import { signInWithEmailAndPassword } from "firebase/auth"
+import { signInWithEmailAndPassword } from 'firebase/auth'
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 
 import { Alerta } from '../elements/Alerta'
-import { auth } from './../firebase/firebaseConfig'
 import { Boton } from '../elements/Boton'
 import { ContenedorHeader, Header, Titulo } from '../elements/Header'
 import { ContenedorBoton, Formulario, Input } from '../elements/ElementosFormulario'
+
+import { auth } from './../firebase/firebaseConfig'
 import { ReactComponent as SvgLogin } from '../img/login.svg'
 
 const Login = () => {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
   const [alerta, setAlerta] = useState({})
+  const [email, setEmail] = useState('')
   const [estadoAlerta, setEstadoAlerta] = useState(false)
+  const [password, setPassword] = useState('')
+  const navigate = useNavigate()
 
   const handleChange = ({ target:{ name, value } }) => {
     name==='email' ? setEmail(value) : setPassword(value)
